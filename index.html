@@ -1,83 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Time Zone Viewer</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 20px;
-    }
-    h1 {
-      font-size: 3em;
-      margin: 20px 0;
-    }
-    .time-zone-section {
-      margin-top: 30px;
-    }
-    select {
-      font-size: 1.2em;
-      padding: 5px 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Zone App</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1 id="utc-time">Loading UTC time...</h1>
-
-  <div class="time-zone-section">
-    <label for="time-zone">Select Time Zone:</label>
-    <select id="time-zone">
-      <option value="Asia/Kolkata" selected>IST (Asia/Kolkata)</option>
-      <option value="America/New_York">EST (America/New_York)</option>
-      <option value="Europe/London">GMT (Europe/London)</option>
-      <option value="Asia/Tokyo">JST (Asia/Tokyo)</option>
-      <option value="Australia/Sydney">AEDT (Australia/Sydney)</option>
-    </select>
-    <h1 id="local-time">Loading Local Time...</h1>
-  </div>
-
-  <script>
-    // Function to format the time as HH:mm:ss.SSS
-    function formatTime(date) {
-      return date.toISOString().split('T')[1].split('Z')[0];
-    }
-
-    // Update UTC time every second
-    function updateUtcTime() {
-      const utcTimeElement = document.getElementById('utc-time');
-      const now = new Date();
-      utcTimeElement.textContent = `UTC Time: ${formatTime(now)}`;
-    }
-
-    // Update local time based on selected time zone
-    async function updateLocalTime() {
-      const timeZone = document.getElementById('time-zone').value;
-      const localTimeElement = document.getElementById('local-time');
-
-      // Fetch current UTC time and calculate local time
-      const now = new Date();
-      const options = { timeZone, hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit', fractionalSecondDigits: 3 };
-      const formatter = new Intl.DateTimeFormat('en-US', options);
-      localTimeElement.textContent = `Local Time: ${formatter.format(now)}`;
-    }
-
-    // Initialize app
-    function init() {
-      updateUtcTime();
-      updateLocalTime();
-
-      // Update times every second
-      setInterval(updateUtcTime, 1000);
-      setInterval(updateLocalTime, 1000);
-
-      // Update local time when time zone changes
-      document.getElementById('time-zone').addEventListener('change', updateLocalTime);
-    }
-
-    // Run the app
-    init();
-  </script>
+    <div class="container">
+        <div class="time-display">
+            <h1 id="utc-time"></h1>
+        </div>
+        <div class="time-zone-selector">
+            <label for="time-zone">Select Time Zone:</label>
+            <select id="time-zone">
+                <option value="Asia/Kolkata" selected>IST (Indian Standard Time)</option>
+                <option value="America/New_York">EST (Eastern Standard Time)</option>
+                <option value="Europe/London">GMT (Greenwich Mean Time)</option>
+                <option value="Asia/Tokyo">JST (Japan Standard Time)</option>
+                <option value="Australia/Sydney">AEDT (Australian Eastern Daylight Time)</option>
+            </select>
+            <h1 id="local-time"></h1>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
+
