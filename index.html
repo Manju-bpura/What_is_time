@@ -8,12 +8,13 @@
 </head>
 <body>
     <div class="container">
+        <!-- UTC Time Display -->
         <div class="time-display">
             <h1 id="utc-time"></h1>
         </div>
+        <!-- Time Zone Selector -->
         <div class="time-zone-selector">
             <label for="time-zone">Select Time Zone:</label>
-        </div>
             <select id="time-zone">
                 <option value="Asia/Kolkata" selected>IST (Indian Standard Time)</option>
                 <option value="America/New_York">EST (Eastern Standard Time)</option>
@@ -21,9 +22,14 @@
                 <option value="Asia/Tokyo">JST (Japan Standard Time)</option>
                 <option value="Australia/Sydney">AEDT (Australian Eastern Daylight Time)</option>
             </select>
+        </div>
+        <!-- Local Time Display -->
+        <div class="local-time-display">
             <h1 id="local-time"></h1>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
 </html>
+
 
