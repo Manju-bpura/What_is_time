@@ -1,6 +1,7 @@
 function updateTime() {
     const utcTimeElement = document.getElementById('utc-time');
     const localTimeElement = document.getElementById('local-time');
+    const localTimeElement1 = document.getElementById('local-time1');
     const timeZoneSelect = document.getElementById('time-zone');
 
     // Get current UTC time
@@ -21,6 +22,7 @@ function updateTime() {
     const localSeconds = localTime.getSeconds().toString().padStart(2, '0');
     const localMilliseconds = localTime.getMilliseconds().toString().padStart(3, '0');
     localTimeElement.textContent = `Time in ${selectedTimeZone}:/n ${localHours}:${localMinutes}:${localSeconds}.${localMilliseconds}`;
+    localTimeElement1.textContent = `${localHours}:${localMinutes}:${localSeconds}.${localMilliseconds}`;
 }
 
 // Update time continuously without pauses
