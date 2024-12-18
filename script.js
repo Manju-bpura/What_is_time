@@ -22,7 +22,7 @@ function updateTime() {
     const localSeconds = localTime.getSeconds().toString().padStart(2, '0');
     const localMilliseconds = localTime.getMilliseconds().toString().padStart(3, '0');
     localTimeElement.textContent = `Time in ${selectedTimeZone}:/n ${localHours}:${localMinutes}:${localSeconds}.${localMilliseconds}`;
-    localTimeElement1.textContent = `${localHours}:${localMinutes}:${localSeconds}.${localMilliseconds}`;
+    localTimeElement1.textContent = `Time in india`;
 }
 
 // Update time continuously without pauses
